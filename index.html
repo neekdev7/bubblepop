@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bubble POP Meme Coin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Bubble POP - The Ultimate Solana Meme Coin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -14,410 +15,828 @@
         }
         
         body {
-            font-family: 'Fredoka', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #1a237e, #3949ab, #5c6bc0);
+            color: #fff;
             overflow-x: hidden;
+            min-height: 100vh;
         }
         
         .container {
-            width: 100%;
-            max-width: 720px;
+            max-width: 1200px;
             margin: 0 auto;
-            min-height: 960px;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            padding: 20px 0;
             position: relative;
-            background: linear-gradient(135deg, #e0f7fa 0%, #bbdefb 100%);
-            overflow: hidden;
+            z-index: 50;
         }
         
-        /* Bubble Background */
-        .bubble {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(173, 216, 230, 0.4));
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            z-index: 0;
-        }
-        
-        .bubble-1 {
-            width: 200px;
-            height: 200px;
-            top: 10%;
-            left: -50px;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 182, 193, 0.8), rgba(255, 105, 180, 0.4));
-        }
-        
-        .bubble-2 {
-            width: 150px;
-            height: 150px;
-            top: 60%;
-            right: -30px;
-            background: radial-gradient(circle at 30% 30%, rgba(173, 216, 230, 0.8), rgba(100, 149, 237, 0.4));
-        }
-        
-        .bubble-3 {
-            width: 100px;
-            height: 100px;
-            top: 30%;
-            right: 20%;
-            background: radial-gradient(circle at 30% 30%, rgba(152, 251, 152, 0.8), rgba(50, 205, 50, 0.4));
-        }
-        
-        .bubble-4 {
-            width: 80px;
-            height: 80px;
-            top: 70%;
-            left: 20%;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 224, 0.8), rgba(255, 215, 0, 0.4));
-        }
-        
-        /* QR Code */
-        .qr-code {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 100px;
-            height: 100px;
-            background-color: white;
-            padding: 5px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 10;
+        .header-content {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-        }
-        
-        .qr-code img {
-            max-width: 90px;
-            max-height: 90px;
-        }
-        
-        /* Header */
-        .header {
-            padding: 30px 20px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
         }
         
         .logo {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
+            gap: 15px;
+        }
+        
+        .logo h1 {
+            font-family: 'Bungee', cursive;
+            font-size: 36px;
+            color: #ffeb3b;
+            text-shadow: 3px 3px 0px #1a237e;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
         
         .logo-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            background: #ffeb3b;
             border-radius: 50%;
             display: flex;
-            align-items: center;
             justify-content: center;
-            margin-right: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            animation: rotate 10s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         .logo-icon i {
-            color: white;
+            color: #1a237e;
             font-size: 36px;
         }
         
-        .logo-text {
-            font-size: 36px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .tagline {
-            font-size: 20px;
-            color: #555;
-            margin-top: 5px;
-        }
-        
-        /* Main Content */
-        .content {
-            padding: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .section {
-            background: rgba(255, 255, 255, 0.85);
+        .user-image {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 120px;
+            height: 120px;
             border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 10;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+        
+        nav a:hover {
+            background: rgba(255, 235, 59, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 72px;
+            margin-bottom: 20px;
+            color: #ffeb3b;
+            text-shadow: 3px 3px 0px #1a237e;
+            line-height: 1.2;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .hero p {
+            font-size: 24px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.5;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 20px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover:before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: #ffeb3b;
+            color: #1a237e;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #ffeb3b;
+            border: 3px solid #ffeb3b;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 235, 59, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        /* Static Bubble Display */
+        .bubble-display {
+            position: relative;
+            height: 400px;
+            margin: 50px auto;
+            max-width: 800px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .static-bubble {
+            position: absolute;
+            border-radius: 50%;
+            box-shadow: inset -10px -10px 20px rgba(255,255,255,0.2),
+                        inset 10px 10px 20px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .static-bubble:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 235, 59, 0.6);
+        }
+        
+        .bubble-instructions {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #ffeb3b;
+            font-weight: bold;
+        }
+        
+        /* Coin name popup */
+        .coin-popup {
+            position: absolute;
+            font-family: 'Fredoka One', cursive;
+            font-size: 28px;
+            color: #ffeb3b;
+            text-shadow: 2px 2px 0px #1a237e;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.5s ease;
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        .coin-popup.show {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
         }
         
         .section-title {
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #5e35b1;
+            font-family: 'Fredoka One', cursive;
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ffeb3b;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 4px;
+            background: #ffeb3b;
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            flex: 1;
             text-align: center;
         }
         
-        .section-content {
-            font-size: 18px;
-            color: #555;
+        .about-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .about-image img:hover {
+            transform: scale(1.05);
         }
         
         /* Tokenomics */
-        .tokenomics-chart {
+        .tokenomics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .token-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .token-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .token-card i {
+            font-size: 48px;
+            color: #ffeb3b;
+            margin-bottom: 20px;
+        }
+        
+        .token-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .token-card p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        
+        /* Buy Section */
+        .buy-section {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 30px;
+            padding: 60px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .buy-steps {
             display: flex;
             justify-content: space-around;
-            margin-top: 20px;
-        }
-        
-        .token-item {
-            text-align: center;
-            width: 30%;
-        }
-        
-        .token-percentage {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-        
-        .token-label {
-            font-size: 16px;
-            color: #666;
-        }
-        
-        .token-item:nth-child(1) .token-percentage {
-            color: #5e35b1;
-        }
-        
-        .token-item:nth-child(2) .token-percentage {
-            color: #00897b;
-        }
-        
-        .token-item:nth-child(3) .token-percentage {
-            color: #f57c00;
-        }
-        
-        /* How to Buy */
-        .steps {
-            counter-reset: step;
+            margin: 50px 0;
+            flex-wrap: wrap;
+            gap: 30px;
         }
         
         .step {
-            margin-bottom: 15px;
-            padding-left: 40px;
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
             position: relative;
         }
         
-        .step:before {
-            counter-increment: step;
-            content: counter(step);
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 30px;
-            height: 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #ffeb3b;
+            color: #1a237e;
             border-radius: 50%;
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-weight: 600;
-        }
-        
-        /* Roadmap */
-        .roadmap {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .roadmap-item {
-            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
-            border-radius: 15px;
-            padding: 15px;
+            align-items: center;
+            font-size: 30px;
+            font-weight: bold;
+            margin: 0 auto 20px;
             position: relative;
+            z-index: 1;
         }
         
-        .roadmap-phase {
-            font-weight: 600;
-            color: #0277bd;
-            margin-bottom: 5px;
+        .step-number:after {
+            content: "";
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(255, 235, 59, 0.3);
+            z-index: -1;
+            animation: pulse 2s infinite;
         }
         
-        /* CTA Button */
-        .cta-button {
-            display: block;
-            width: 80%;
-            margin: 30px auto 0;
-            padding: 15px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-            border-radius: 30px;
-            font-size: 20px;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .step h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
         }
         
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        .step p {
+            font-size: 18px;
+            line-height: 1.5;
         }
         
         /* Footer */
-        .footer {
+        footer {
+            padding: 40px 0;
             text-align: center;
-            padding: 20px;
-            color: #666;
-            font-size: 16px;
-            position: relative;
-            z-index: 1;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .social-links {
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin-top: 10px;
+            margin-bottom: 20px;
         }
         
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .social-links a {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
             display: flex;
-            align-items: center;
             justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: transform 0.3s ease;
+            align-items: center;
+            color: #fff;
+            font-size: 24px;
+            transition: all 0.3s ease;
         }
         
-        .social-link:hover {
-            transform: scale(1.1);
+        .social-links a:hover {
+            background: #ffeb3b;
+            color: #1a237e;
+            transform: translateY(-5px);
+        }
+        
+        /* Floating bubbles background */
+        .floating-bubble {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.2;
+            z-index: -1;
+            animation: float-up linear infinite;
+        }
+        
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 48px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .buy-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .bubble-display {
+                height: 300px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Bubble Background Elements -->
-        <div class="bubble bubble-1"></div>
-        <div class="bubble bubble-2"></div>
-        <div class="bubble bubble-3"></div>
-        <div class="bubble bubble-4"></div>
-        
-        <!-- Logo -->
-        <div class="logo">
-            <img src="https://i.postimg.cc/65mDBPKq/Chat-GPT-Image-Aug-11-2025-02-03-05-PM.png/90x90?text=logo+Code" alt="logo">
-        </div>
-        
-        <!-- Header -->
-        <div class="header">
-            <div class="logo">
-                <div class="logo-icon">
-                    <i class="material-icons">bubble_chart</i>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-soap"></i>
+                    </div>
+                    <h1>Bubble POP</h1>
                 </div>
-                <div class="logo-text">Bubble POP</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#tokenomics">Tokenomics</a></li>
+                        <li><a href="#buy">Buy Now</a></li>
+                    </ul>
+                </nav>
             </div>
-            <div class="tagline">Pop into the Future of Meme Coins!</div>
+            <img src="https://sfile.chatglm.cn/images-ppt/866c5eab183e.png" alt="Bubble POP" class="user-image">
         </div>
-        
-        <!-- Main Content -->
-        <div class="content">
-            <!-- About Section -->
-            <div class="section">
-                <h2 class="section-title">About Bubble POP</h2>
-                <div class="section-content">
-                    Bubble POP is the newest and most exciting meme coin on the Solana blockchain! Inspired by the addictive bubble pop games we all love, our coin brings fun, rewards, and community together. Join us as we pop our way to the moon!
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h2>POP, DROP & EARN!</h2>
+                <p>The most fun meme coin on Solana! Join the bubble popping revolution and watch your investment grow with every pop!</p>
+                <div class="cta-buttons">
+                    <a href="#buy" class="btn btn-primary">Buy on Pump.fun</a>
+                    <a href="#" class="btn btn-secondary">Join Community</a>
                 </div>
             </div>
             
-            <!-- Tokenomics Section -->
-            <div class="section">
-                <h2 class="section-title">Tokenomics</h2>
-                <div class="section-content">
-                    <div class="tokenomics-chart">
-                        <div class="token-item">
-                            <div class="token-percentage">50%</div>
-                            <div class="token-label">Liquidity</div>
-                        </div>
-                        <div class="token-item">
-                            <div class="token-percentage">40%</div>
-                            <div class="token-label">Marketing</div>
-                        </div>
-                        <div class="token-item">
-                            <div class="token-percentage">10%</div>
-                            <div class="token-label">Team</div>
-                        </div>
+            <div class="bubble-instructions">Click the bubbles to POP them and reveal $BPOP!</div>
+            <div class="bubble-display" id="bubbleDisplay">
+                <!-- Static bubbles will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Bubble POP</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Bubble POP is the newest and most exciting meme coin on the Solana blockchain! Inspired by the addictive bubble pop games we all love, Bubble POP brings fun and rewards to the crypto world.</p>
+                    <p>Our mission is to create a vibrant community around a token that's not just another meme coin, but an interactive experience. Holders can participate in community events, earn rewards, and watch as the community grows stronger with every new member.</p>
+                    <p>With a limited supply and innovative tokenomics, Bubble POP is designed to reward early adopters and create sustainable growth for the long term.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://sfile.chatglm.cn/images-ppt/06a1aa11ee23.jpg" alt="Bubble Pop Game">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tokenomics" id="tokenomics">
+        <div class="container">
+            <h2 class="section-title">Tokenomics</h2>
+            <div class="tokenomics-grid">
+                <div class="token-card">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Total Supply</h3>
+                    <p>1,000,000,000 BUBBLE</p>
+                </div>
+                <div class="token-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Liquidity</h3>
+                    <p>90% locked for 1 year</p>
+                </div>
+                <div class="token-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Community</h3>
+                    <p>5% for airdrops & rewards</p>
+                </div>
+                <div class="token-card">
+                    <i class="fas fa-microchip"></i>
+                    <h3>Development</h3>
+                    <p>5% for future growth</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="buy" id="buy">
+        <div class="container">
+            <h2 class="section-title">Buy Bubble POP</h2>
+            <div class="buy-section">
+                <p style="font-size: 24px; margin-bottom: 30px;">Bubble POP is exclusively available on Pump.fun!</p>
+                <div class="buy-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Get Solana</h3>
+                        <p>Make sure you have SOL in your wallet to purchase BUBBLE tokens.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Visit Pump.fun</h3>
+                        <p>Go to Pump.fun and search for "Bubble POP" or use our direct link.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Swap & Pop</h3>
+                        <p>Connect your wallet, swap SOL for BUBBLE, and join the fun!</p>
                     </div>
                 </div>
+                <a href="https://pump.fun" target="_blank" class="btn btn-primary" style="font-size: 24px; padding: 20px 40px;">Buy Now on Pump.fun</a>
             </div>
-            
-            <!-- How to Buy Section -->
-            <div class="section">
-                <h2 class="section-title">How to Buy</h2>
-                <div class="section-content">
-                    <div class="steps">
-                        <div class="step">Create a Solana wallet (Phantom, Solflare)</div>
-                        <div class="step">Transfer SOL to your wallet</div>
-                        <div class="step">Connect to a DEX (Pump.fun)</div>
-                        <div class="step">Swap SOL for $BPOP tokens</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Roadmap Section -->
-            <div class="section">
-                <h2 class="section-title">Roadmap</h2>
-                <div class="section-content">
-                    <div class="roadmap">
-                        <div class="roadmap-item">
-                            <div class="roadmap-phase">Phase 1: Launch</div>
-                            <div>Token launch, initial marketing, community building</div>
-                        </div>
-                        <div class="roadmap-item">
-                            <div class="roadmap-phase">Phase 2: Growth</div>
-                            <div>Exchange listings, partnerships, influencer campaigns</div>
-                        </div>
-                        <div class="roadmap-item">
-                            <div class="roadmap-phase">Phase 3: Expansion</div>
-                            <div>Bubble POP game development, NFT collection, merchandise</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- CTA Button -->
-            <a href="#" class="cta-button">Buy Bubble POP Now!</a>
         </div>
-        
-        <!-- Footer -->
-        <div class="footer">
-            <div>© 2025 Bubble POP Coin. All rights reserved.</div>
+    </section>
+
+    <footer>
+        <div class="container">
             <div class="social-links">
-                <a href="#" class="social-link">
-                    <i class="material-icons">language</i>
-                </a>
-                <a href="#" class="social-link">
-                    <i class="material-icons">chat</i>
-                </a>
-                <a href="#" class="social-link">
-                    <i class="material-icons">alternate_email</i>
-                </a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-discord"></i></a>
+                <a href="#"><i class="fab fa-reddit"></i></a>
             </div>
+            <p>© 2025 Bubble POP. All rights reserved. The funniest meme coin on Solana!</p>
         </div>
-    </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const bubbleDisplay = document.getElementById('bubbleDisplay');
+            const bubbleColors = ['#ffeb3b', '#4fc3f7', '#81c784', '#e57373', '#ba68c8', '#ffb74d'];
+            
+            // Create background floating bubbles
+            function createBackgroundBubble() {
+                const size = Math.random() * 40 + 10;
+                const bubble = document.createElement('div');
+                bubble.classList.add('floating-bubble');
+                
+                const posX = Math.random() * window.innerWidth;
+                const duration = Math.random() * 20 + 10;
+                const color = bubbleColors[Math.floor(Math.random() * bubbleColors.length)];
+                
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${posX}px`;
+                bubble.style.background = `radial-gradient(circle at 30% 30%, ${color}, ${adjustColor(color, -40)})`;
+                bubble.style.animationDuration = `${duration}s`;
+                
+                document.body.appendChild(bubble);
+                
+                setTimeout(() => {
+                    bubble.remove();
+                }, duration * 1000);
+            }
+            
+            // Create initial background bubbles
+            for (let i = 0; i < 10; i++) {
+                setTimeout(createBackgroundBubble, i * 1000);
+            }
+            
+            // Continue creating background bubbles
+            setInterval(createBackgroundBubble, 3000);
+            
+            // Create static bubbles for display
+            function createStaticBubbles() {
+                const bubbleCount = 15;
+                
+                for (let i = 0; i < bubbleCount; i++) {
+                    const size = Math.random() * 60 + 30; // Random size between 30 and 90
+                    const bubble = document.createElement('div');
+                    bubble.classList.add('static-bubble');
+                    
+                    // Random position
+                    const posX = Math.random() * (bubbleDisplay.offsetWidth - size);
+                    const posY = Math.random() * (bubbleDisplay.offsetHeight - size);
+                    
+                    // Random color
+                    const color = bubbleColors[Math.floor(Math.random() * bubbleColors.length)];
+                    
+                    bubble.style.width = `${size}px`;
+                    bubble.style.height = `${size}px`;
+                    bubble.style.left = `${posX}px`;
+                    bubble.style.top = `${posY}px`;
+                    bubble.style.background = `radial-gradient(circle at 30% 30%, ${color}, ${adjustColor(color, -40)})`;
+                    
+                    // Add click event for pop effect
+                    bubble.addEventListener('click', function() {
+                        // Play pop sound
+                        playPopSound();
+                        
+                        // Create pop effect
+                        createPopEffect(this.offsetLeft + this.offsetWidth/2, this.offsetTop + this.offsetHeight/2, color);
+                        
+                        // Show coin name
+                        showCoinName(this.offsetLeft + this.offsetWidth/2, this.offsetTop + this.offsetHeight/2);
+                        
+                        // Temporarily hide and then show the bubble again
+                        this.style.opacity = '0';
+                        this.style.transform = 'scale(0)';
+                        
+                        setTimeout(() => {
+                            this.style.opacity = '1';
+                            this.style.transform = 'scale(1)';
+                        }, 500);
+                    });
+                    
+                    bubbleDisplay.appendChild(bubble);
+                }
+            }
+            
+            // Create pop sound effect
+            function playPopSound() {
+                // Create audio context
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                
+                // Create oscillator
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                // Set sound properties
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(400, audioContext.currentTime);
+                oscillator.frequency.exponentialRampToValueAtTime(600, audioContext.currentTime + 0.1);
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+                
+                // Play sound
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.1);
+            }
+            
+            // Show coin name when bubble is popped
+            function showCoinName(x, y) {
+                const coinPopup = document.createElement('div');
+                coinPopup.classList.add('coin-popup');
+                coinPopup.textContent = '$BPOP';
+                coinPopup.style.left = `${x}px`;
+                coinPopup.style.top = `${y}px`;
+                
+                bubbleDisplay.appendChild(coinPopup);
+                
+                // Trigger animation
+                setTimeout(() => {
+                    coinPopup.classList.add('show');
+                }, 10);
+                
+                // Remove after animation
+                setTimeout(() => {
+                    coinPopup.remove();
+                }, 1000);
+            }
+            
+            function createPopEffect(x, y, color) {
+                const particles = 8;
+                const effectContainer = document.createElement('div');
+                effectContainer.style.position = 'absolute';
+                effectContainer.style.left = `${x}px`;
+                effectContainer.style.top = `${y}px`;
+                effectContainer.style.width = '0';
+                effectContainer.style.height = '0';
+                effectContainer.style.pointerEvents = 'none';
+                
+                for (let i = 0; i < particles; i++) {
+                    const particle = document.createElement('div');
+                    particle.style.position = 'absolute';
+                    particle.style.width = '8px';
+                    particle.style.height = '8px';
+                    particle.style.borderRadius = '50%';
+                    particle.style.backgroundColor = color;
+                    
+                    const angle = (i / particles) * Math.PI * 2;
+                    const velocity = 50 + Math.random() * 50;
+                    const lifetime = 0.5 + Math.random() * 0.5;
+                    
+                    particle.style.transform = `translate(${Math.cos(angle) * velocity}px, ${Math.sin(angle) * velocity}px)`;
+                    particle.style.opacity = '0';
+                    particle.style.transition = `all ${lifetime}s ease-out`;
+                    
+                    effectContainer.appendChild(particle);
+                    
+                    setTimeout(() => {
+                        particle.style.transform = `translate(${Math.cos(angle) * velocity * 2}px, ${Math.sin(angle) * velocity * 2}px)`;
+                        particle.style.opacity = '1';
+                    }, 10);
+                }
+                
+                bubbleDisplay.appendChild(effectContainer);
+                
+                setTimeout(() => {
+                    effectContainer.remove();
+                }, 1000);
+            }
+            
+            // Helper function to darken color
+            function adjustColor(color, amount) {
+                const num = parseInt(color.replace("#", ""), 16);
+                const r = Math.max(0, (num >> 16) + amount);
+                const g = Math.max(0, ((num >> 8) & 0x00FF) + amount);
+                const b = Math.max(0, (num & 0x0000FF) + amount);
+                return "#" + ((r << 16) | (g << 8) | b).toString(16).padStart(6, '0');
+            }
+            
+            // Initialize static bubbles
+            createStaticBubbles();
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
